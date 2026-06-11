@@ -1,0 +1,275 @@
+// ==========================================
+// Statser — unified panel widget above footer
+// ==========================================
+
+.StatserWidget {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 24px 0 8px;
+}
+
+
+// ── Single unified panel ────────────────────────────────────────────────────
+
+.StatserWidget-panel {
+  background: var(--body-bg);
+  border: 1px solid var(--control-bg);
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  // Visual separator between the two rows when both are present.
+  &--divided .StatserWidget-onlineRow {
+    border-bottom: 1px solid var(--control-bg);
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+}
+
+// ── Row 1: online ────────────────────────────────────────────────────────────
+
+.StatserWidget-onlineRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.StatserWidget-onlineHeader {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.StatserWidget-onlineDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4caf50;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #4caf50 18%, transparent);
+  flex-shrink: 0;
+}
+
+.StatserWidget-onlineTitle {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted-color);
+  white-space: nowrap;
+}
+
+.StatserWidget-onlineCount {
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.StatserWidget-avatars {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+.StatserWidget-avatar {
+  display: inline-flex;
+  border-radius: 50%;
+  transition: transform 0.12s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  .Avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+}
+
+.StatserWidget-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 5px;
+  border-radius: 13px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted-color);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.StatserWidget-badge--overflow {
+  border: 1.5px solid var(--muted-color);
+  background: var(--control-bg);
+}
+
+.StatserWidget-badge--hidden {
+  border: 1.5px dashed var(--muted-color);
+  background: transparent;
+}
+
+.StatserWidget-badge--guest {
+  border: 2px dotted var(--muted-color);
+  background: transparent;
+}
+
+.StatserWidget-empty {
+  font-size: 12px;
+  color: var(--muted-color);
+  font-style: italic;
+  align-self: center;
+}
+
+// ── Row 2: compact stat chips ─────────────────────────────────────────────────
+
+.StatserWidget-statsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 20px;
+}
+
+.StatserWidget-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  position: relative;
+}
+
+.StatserWidget-statIcon {
+  font-size: 13px;
+  color: var(--primary-color);
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+}
+
+.StatserWidget-statValue {
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.StatserWidget-statLabel {
+  font-size: 12px;
+  color: var(--muted-color);
+  white-space: nowrap;
+}
+
+// Thin vertical divider between stat chips.
+.StatserWidget-stat + .StatserWidget-stat::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background: var(--control-bg);
+}
+
+// Latest registration chip — avatar + username inline.
+.StatserWidget-latestUser {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--text-color);
+  min-width: 0;
+
+  &:hover {
+    color: var(--text-color);
+    text-decoration: none;
+
+    .StatserWidget-latestUsername {
+      text-decoration: underline;
+    }
+  }
+
+  .Avatar {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+}
+
+.StatserWidget-latestUsername {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 140px;
+}
+
+// ── TagsPage alignment with MagicStats slider viewport ────────────────────────
+//
+// MagicStats stage grid: 56px [arrow] | 8px gap | [viewport] | 8px gap | 56px [arrow]
+// Viewport starts at 56 + 8 = 64px from each edge. We add the same margin
+// to the widget so it visually aligns with the slider cards, not the arrows.
+//
+// The widget is pushed as a direct child of TagsPage's root children array,
+// so it sits as a sibling of .MagicStatsHomeWidget — target it via that.
+// We also scope to .TagsPage body class as a fallback.
+
+.MagicStatsHomeWidget ~ .StatserWidget,
+.TagsPage .StatserWidget {
+  margin-left: 64px;
+  margin-right: 64px;
+  margin-top: 32px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .MagicStatsHomeWidget ~ .StatserWidget,
+  .TagsPage .StatserWidget {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: 767px) {
+  .StatserWidget {
+    margin: 16px 0 4px;
+  }
+
+  .StatserWidget-panel {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .StatserWidget-statsRow {
+    gap: 10px 18px;
+  }
+
+  .StatserWidget-stat + .StatserWidget-stat::before {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .StatserWidget-onlineRow {
+    gap: 8px;
+  }
+
+  .StatserWidget-latestUsername {
+    max-width: 100px;
+  }
+}

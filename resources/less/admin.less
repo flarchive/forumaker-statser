@@ -1,0 +1,88 @@
+// ==========================================
+// Statser — admin settings page
+// ==========================================
+
+.StatserSettingsPage {
+  --statser-card-radius: 12px;
+}
+
+.StatserSettingsPage-content {
+  background: var(--body-bg);
+  border: 1px solid var(--control-bg);
+  border-radius: var(--statser-card-radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.Statser-SettingsSection {
+  width: 100%;
+  background: color-mix(in srgb, var(--control-bg) 25%, transparent);
+  border: 1px solid var(--control-bg);
+  border-radius: var(--statser-card-radius);
+  padding: 20px;
+
+  > h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--control-bg);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+
+    i {
+      font-size: 16px;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: color-mix(in srgb, var(--primary-color) 10%, transparent);
+      color: var(--primary-color);
+      border-radius: 6px;
+    }
+  }
+}
+
+.Statser-SettingsSection-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.StatserSettingsPage .Form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.StatserSettingsPage .Form-group .helpText {
+  font-size: 12px;
+  color: var(--muted-color, color-mix(in srgb, var(--text-color) 50%, transparent));
+  margin-top: 6px;
+  line-height: 1.5;
+  padding-left: 10px;
+  border-left: 2px solid var(--control-bg);
+}
+
+.StatserSettingsPage input[type="number"] {
+  max-width: 180px;
+}
+
+// Cosmetic dimming for dependent settings groups.
+.Statser-disabled {
+  opacity: 0.45;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+
+  label,
+  .helpText {
+    cursor: default;
+  }
+}

@@ -1,0 +1,53 @@
+{
+    "name": "forumaker/statser",
+    "description": "Adds a live online widget — see who's browsing and what page they're on",
+    "keywords": [
+        "flarum",
+        "flarum-extension",
+        "statistics",
+        "widget",
+        "online-users",
+        "tiles"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "homepage": "https://github.com/forumaker/Statser",
+    "support": {
+        "issues": "https://github.com/forumaker/Statser/issues",
+        "source": "https://github.com/forumaker/Statser"
+    },
+    "authors": [
+        {
+            "name": "forumaker",
+            "role": "Developer",
+            "email": "arsenyuxw@gmail.com",
+            "homepage": "https://github.com/forumaker"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "flarum/core": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "forumaker\\Statser\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "2.x-dev"
+        },
+        "flarum-extension": {
+            "title": "Statser",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-location-arrow",
+                "backgroundColor": "#BC3D38",
+                "color": "#ffffff"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

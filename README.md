@@ -2,13 +2,16 @@
 
 > **Read-only archive of released versions of forumaker/statser.** Not for installation: use [Packagist](https://packagist.org/packages/forumaker/statser) or the [upstream repository](https://github.com/forumaker/Statser).
 
-**0** versions archived · Latest: [`2.2.2`](https://github.com/flarchive/forumaker-statser/tree/archive/v2.2.2) · License: `MIT` · Flarum: `^2.0`
+**4** versions archived · Latest: [`2.2.2`](https://github.com/flarchive/forumaker-statser/tree/archive/v2.2.2) · License: `MIT` · Flarum: `^2.0`
 
 ## Archived Versions
 
 | Version | Released | Flarum | Source |
 |---|---|---|---|
-| — | — | — | — |
+| `2.0.0` | 2026-06-10 | `^2.0` | [Browse](https://github.com/flarchive/forumaker-statser/tree/archive/v2.0.0) |
+| `2.1.0` | 2026-06-11 | `^2.0` | [Browse](https://github.com/flarchive/forumaker-statser/tree/archive/v2.1.0) |
+| `2.2.0` | 2026-07-08 | `^2.0` | [Browse](https://github.com/flarchive/forumaker-statser/tree/archive/v2.2.0) |
+| `2.2.2` | 2026-07-08 | `^2.0` | [Browse](https://github.com/flarchive/forumaker-statser/tree/archive/v2.2.2) |
 
 Catalog entry: [packages/forumaker-statser.json](https://github.com/flarchive/archive-index/blob/main/packages/forumaker-statser.json)
 
